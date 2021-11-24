@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
 
 ## Project Overview
 
@@ -25,26 +25,43 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 
 ## Setup the Environment
 
-* Create a virtualenv with Python 3.7 and activate it. Refer to this link for help on specifying the Python version in the virtualenv. 
-```bash
-python3 -m pip install --user virtualenv
-# You should have Python 3.7 available in your host. 
-# Check the Python path using `which python3`
-# Use a command similar to this one:
-python3 -m virtualenv --python=<path-to-Python3.7> .devops
-source .devops/bin/activate
-```
+* Run `make setup` to create a virtualenv with Python 3.7 and activate it
 * Run `make install` to install the necessary dependencies
 
 ### Running `app.py`
 
 1. Standalone:  `python app.py`
 2. Run in Docker:  `./run_docker.sh`
-3. Run in Kubernetes:  `./run_kubernetes.sh`
+3. Run in Kubernetes:  `minikube start` then `./run_kubernetes.sh`
 
 ### Kubernetes Steps
 
 * Setup and Configure Docker locally
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
-* Run via kubectl
+* Run via kubectl 
+
+### Test the app
+
+* run `./make_prediction.sh` in a separate terminal 
+---
+
+## File Sctructure
+    .
+    ├── .circleci                   
+    │   ├── config.yml           # Checks the project code for errors
+    ├── model_data               # Housing data from Kaggle 
+    ├── output_txt_files                   
+    │   ├── docker_out.txt       # Terminal output after running a prediction via docker
+    │   ├── kubernetes_out.txt   # Terminal output after running a prediction via Kubernetes deployment
+    ├── Dockerfile               # Privide instructions to build images automatically
+    ├── Makefile                 # Privide instructions on environment setup and lint tests
+    ├── app.py                   # Flask app that predicts housing prices through API calls
+    ├── make_prediction.sh       # Script to make prediction
+    ├── requirements.txt         # list of required dependencies
+    ├── resize.sh                # Resize an Amazon EBS volume used by Cloud9 environment
+    ├── run_docker.sh            # Script to run and build a docker image
+    ├── run_kubernetes.sh        # Script to run a docker image with kubernetes
+    ├── upload_docker.sh         # Upload an image to docker
+    └── README.md
+    
