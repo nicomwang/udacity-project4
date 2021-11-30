@@ -18,4 +18,4 @@ kubectl get pods
 
 # Step 4:
 # Forward the container port to a host
-kubectl port-forward web-pod 8080:80
+kubectl port-forward web-pod 8000:80
