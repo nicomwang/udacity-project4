@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://app.circleci.com/pipelines/github/nicomwang/udacity-project4)
+[![CircleCI](https://circleci.com/gh/nicomwang/udacity-project4.svg?style=svg)](https://app.circleci.com/pipelines/github/nicomwang/udacity-project4)
 
 ## Project Overview
 
